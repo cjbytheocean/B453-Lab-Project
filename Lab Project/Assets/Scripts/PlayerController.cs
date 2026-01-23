@@ -7,6 +7,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] float sprintSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
+    [SerializeField] Weapon equippedWeapon;
+   
 
 
     private float moveFB;
@@ -17,6 +19,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     private Camera playerCam;
     private CharacterController cc;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,6 +33,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
     void Update()
     {
         Move();
+        WeaponInput();
     }
 
     private void Move()
@@ -78,5 +82,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
         cc.Move((movement + jumpVelocity) * Time.deltaTime);
+    }
+
+    private void WeaponInput()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            equippedWeapon.Shoot();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            equippedWeapon.Reload();
+            
+
+        } 
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
@@ -13,14 +14,14 @@ public class Pistol : Weapon
     // Update is called once per frame
     private void Update()
     {
-        if (Input.GetButtonDown("Fire 1"))
+        if (Input.GetMouseButtonDown(0)) //GetMouseButtonDown(0) GetButtonDown("Fire 1")
         {
             Shoot();
         }
         
     }
 
-    protected override void Shoot()
+    public override void Shoot()
     {
         Vector3 targetPosition = Camera.main.transform.position + Camera.main.transform.forward * range;
         Vector3 shootDirection = (targetPosition - firePoint.position).normalized;
