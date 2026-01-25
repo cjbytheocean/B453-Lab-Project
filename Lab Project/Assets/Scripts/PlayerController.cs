@@ -94,8 +94,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             equippedWeapon.Reload();
-            
-
         } 
     }
 }
