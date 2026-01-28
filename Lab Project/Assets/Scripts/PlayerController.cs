@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class NewMonoBehaviourScript : MonoBehaviour
@@ -7,6 +8,8 @@ public class NewMonoBehaviourScript : MonoBehaviour
     [SerializeField] float sprintSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
+    [SerializeField] protected TextMeshProUGUI bulletText;
+    public int spareRounds;
     [SerializeField] Weapon equippedWeapon;
    
 
@@ -27,6 +30,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         cc = GetComponent<CharacterController>();
         playerCam = transform.GetChild(0).GetComponent<Camera>();
+        equippedWeapon = GetComponentInChildren<Weapon>();
     }
 
     // Update is called once per frame
@@ -89,11 +93,18 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             equippedWeapon.Shoot();
+            UpdateUI();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            equippedWeapon.Reload();
+            spareRounds = equippedWeapon.Reload(spareRounds);
+            UpdateUI();
         } 
+    }
+
+    void UpdateUI()
+    {
+        
     }
 }

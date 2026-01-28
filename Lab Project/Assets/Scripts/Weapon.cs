@@ -7,7 +7,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected float range;
     [SerializeField] protected float fireRate;
-    [SerializeField] float bulletCount = 20;
+    [SerializeField] int bulletCount = 20;
     [SerializeField] int maxCapacity = 20;
     [SerializeField] TMP_Text countText;
 
@@ -26,8 +26,18 @@ public abstract class Weapon : MonoBehaviour
         bulletCount--;
     }
 
-    public virtual void Reload()
+    public virtual int Reload(int spareRounds)
     {
-        bulletCount = 20;
+        if (spareRounds + bulletCount >= maxCapacity)
+        {
+            spareRounds -= maxCapacity - bulletCount;
+            bulletCount = maxCapacity;
+            return spareRounds;
+        }
+        else
+        {
+            bulletCount += spareRounds;
+            return 0; 
+        }
     }
 }

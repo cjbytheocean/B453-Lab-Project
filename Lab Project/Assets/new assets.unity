@@ -650,7 +650,7 @@ MonoBehaviour:
   damage: 5
   range: 20
   fireRate: 10
-  bulletCount: 13
+  bulletCount: 20
   maxCapacity: 20
   countText: {fileID: 335742408}
 --- !u!1001 &681843847
@@ -1490,7 +1490,7 @@ GameObject:
   - component: {fileID: 2108801376}
   - component: {fileID: 2108801375}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1538,7 +1538,9 @@ MonoBehaviour:
   sprintSpeed: 7
   jumpForce: 2
   gravity: 2
-  equippedWeapon: {fileID: 0}
+  bulletText: {fileID: 335742408}
+  spareRounds: 0
+  equippedWeapon: {fileID: 628389461}
 --- !u!136 &2108801377
 CapsuleCollider:
   m_ObjectHideFlags: 0
