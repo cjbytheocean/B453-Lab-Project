@@ -7,15 +7,14 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected float damage;
     [SerializeField] protected float range;
     [SerializeField] protected float fireRate;
-    [SerializeField] int bulletCount = 20;
-    [SerializeField] int maxCapacity = 20;
+    public int bulletCount = 20;
+    public int maxCapacity = 20;
     [SerializeField] TMP_Text countText;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected virtual void Start()
-    {
-        countText.text = maxCapacity.ToString();
+    { 
         
     }
 

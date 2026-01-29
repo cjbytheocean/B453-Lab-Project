@@ -12,8 +12,6 @@ public class NewMonoBehaviourScript : MonoBehaviour
     public int spareRounds;
     [SerializeField] Weapon equippedWeapon;
    
-
-
     private float moveFB;
     private float moveLR;
     private float rotX;
@@ -105,6 +103,7 @@ public class NewMonoBehaviourScript : MonoBehaviour
 
     void UpdateUI()
     {
+        bulletText.text = $"Bullets: {equippedWeapon.bulletCount}/{spareRounds}";
         
     }
 }
