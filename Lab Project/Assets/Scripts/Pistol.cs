@@ -23,6 +23,15 @@ public class Pistol : Weapon
 
     public override void Shoot()
     {
+        
+        if (bulletCount <= 0)
+        {
+            return;
+        }
+
+        bulletCount--;
+        base.Shoot();
+
         Vector3 targetPosition = Camera.main.transform.position + Camera.main.transform.forward * range;
         Vector3 shootDirection = (targetPosition - firePoint.position).normalized;
 

@@ -1,14 +1,13 @@
 using TMPro;
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float sensitivity;
     [SerializeField] float sprintSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float gravity;
-    [SerializeField] protected TextMeshProUGUI bulletText;
     public int spareRounds;
     [SerializeField] Weapon equippedWeapon;
    
@@ -91,19 +90,12 @@ public class NewMonoBehaviourScript : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             equippedWeapon.Shoot();
-            UpdateUI();
         }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
             spareRounds = equippedWeapon.Reload(spareRounds);
-            UpdateUI();
+            UIManager.Instance.UpdateAmmoText(equippedWeapon.bulletCount, spareRounds);
         } 
-    }
-
-    void UpdateUI()
-    {
-        bulletText.text = $"Bullets: {equippedWeapon.bulletCount}/{spareRounds}";
-        
     }
 }
